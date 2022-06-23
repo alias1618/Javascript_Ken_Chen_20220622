@@ -34,74 +34,111 @@
 
 //=====================If語句=============================================
 
-var isMale = false;
+// var isMale = false;
 
-if (isMale){
-    console.log('Yes');
-} else {
-    console.log('No');
-}
-
-
-var isFemale = 'Yes'
-
-if (isFemale == 'Yes') {
-
-    console.log('She is female.');
-} else {
-
-    console.log('He is male');
-}
+// if (isMale){
+//     console.log('Yes');
+// } else {
+//     console.log('No');
+// }
 
 
-if (23 == '23') {
+// var isFemale = 'Yes'
 
-    console.log('equal');
+// if (isFemale == 'Yes') {
 
-} else {
+//     console.log('She is female.');
+// } else {
 
-    console.log('not equal');
-}
+//     console.log('He is male');
+// }
 
-if (23 === '23') {
 
-    console.log('equal');
+// if (23 == '23') {
+
+//     console.log('equal');
+
+// } else {
+
+//     console.log('not equal');
+// }
+
+// if (23 === '23') {
+
+//     console.log('equal');
     
-} else {
+// } else {
 
-    console.log('not equal');
-}
+//     console.log('not equal');
+// }
 
 //===========================IF 語句的範圍表達式==============================
 
-var number = 20;
+// var number = 20;
 
-if (number < 20) {
+// if (number < 20) {
 
-    //code
+//     //code
 
-} else if (number > 20) {
+// } else if (number > 20) {
 
-    //code
+//     //code
 
-}else {
+// }else {
 
-    //code
+//     //code
 
+// }
+
+// if (number > 20 && number < 30) {
+
+//     //code
+
+// }
+
+
+// if (number < 18 ||  number > 65) {
+
+//     //code
+// }
+
+// if(!number) {
+//     //code
+// }
+
+//===========================switch 語句的範圍表達式==============================
+
+// var newCase = 'case 7'
+
+// switch (newCase) {
+//     case 'case 1':
+//         console.log('That is case 1.');
+//         break;
+//     case 'case 2':
+//         console.log('That is case 2.');
+//         break;
+//     case 'case 3':
+//         console.log('That is case 3.');
+//         break;    
+//     default:
+//         console.log('That is other case.');
+//         break;
+// }
+
+//===========================function 語句的範圍表達式==============================
+
+function myFirstFunction() {
+
+    console.log('That is my first function');
 }
 
-if (number > 20 && number < 30) {
+myFirstFunction();
 
-    //code
 
+function sum(a,b) {
+
+    var c= a + b;
+    console.log(c);
 }
 
-
-if (number < 18 ||  number > 65) {
-
-    //code
-}
-
-if(!number) {
-    //code
-}
+sum (3,4);
