@@ -127,18 +127,28 @@
 
 //===========================function 語句的範圍表達式==============================
 
-function myFirstFunction() {
+// function myFirstFunction() {
 
-    console.log('That is my first function');
+//     console.log('That is my first function');
+// }
+
+// myFirstFunction();
+
+
+// function sum(a,b) {
+
+//     var c= a + b;
+//     console.log(c);
+// }
+
+// sum (3,4);
+
+function returnFunction(a){
+
+    var b = a + 5;
+    return b;
 }
 
-myFirstFunction();
+var result = returnFunction(1);
 
-
-function sum(a,b) {
-
-    var c= a + b;
-    console.log(c);
-}
-
-sum (3,4);
+console.log(result);
