@@ -145,12 +145,38 @@
 
 //=========================function===========================
 
-function returnFunction(a){
+// function returnFunction(a){
 
-    var b = a + 5;
-    return b;
-}
+//     var b = a + 5;
+//     return b;
+// }
 
-var result = returnFunction(1);
+// var result = returnFunction(1);
 
-console.log(result);
+// console.log(result);
+
+
+//============Array 數組=============================
+
+var names = ['Ken', 'John', 'Kelly', 'Bob'];
+var numbers = [1,2,3,4,5];
+
+console.log(names[0]);
+
+var ken = ['Ken', 28, 'teacher'];
+
+console.log(ken[1]);
+
+//push 將字串加入陣列後方
+names.push('Tom');
+
+//unshift 將字串加入陣列前方
+names.unshift('Chris');
+
+//shift 將移除陣列最前方的值
+names.shift();
+
+//pop 將移除陣列最後方的值
+names.pop();
+
+console.log(names.indexOf('Kelly'));
