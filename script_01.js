@@ -156,27 +156,57 @@
 // console.log(result);
 
 
-//============Array 數組=============================
+//============Array 陣列=============================
 
-var names = ['Ken', 'John', 'Kelly', 'Bob'];
-var numbers = [1,2,3,4,5];
+// var names = ['Ken', 'John', 'Kelly', 'Bob'];
 
-console.log(names[0]);
+// names[0] = 'Jacky';
+// console.log(names);
 
-var ken = ['Ken', 28, 'teacher'];
+// var numbers = [1,2,3,4,5];
 
-console.log(ken[1]);
+// console.log(names[0]);
 
-//push 將字串加入陣列後方
-names.push('Tom');
+// var ken = ['Ken', 28, 'teacher'];
 
-//unshift 將字串加入陣列前方
-names.unshift('Chris');
+// console.log(ken[1]);
 
-//shift 將移除陣列最前方的值
-names.shift();
+// //push 將字串加入陣列後方
+// names.push('Tom');
 
-//pop 將移除陣列最後方的值
-names.pop();
+// //unshift 將字串加入陣列前方
+// names.unshift('Chris');
 
-console.log(names.indexOf('Kelly'));
+// //shift 將移除陣列最前方的值
+// names.shift();
+
+// //pop 將移除陣列最後方的值
+// names.pop();
+
+// console.log(names.indexOf('Kelly'));
+
+//===============object 物件====================
+
+
+var ken = {
+    name: 'Ken',
+    lastName: 'Cen',
+    age:28,
+    job: 'teacher'
+}
+
+//修改物件中資料的方式 -- 第一種
+ken['name'] = 'Tom';
+console.log(ken['name']);
+
+//修改物件中資料的方式 -- 第二種
+ken.name = 'Ken';
+console.log(ken['name']);
+
+var jacky = new Object();
+
+jacky.name = 'jacky';
+jacky.lastName = 'Cen';
+jacky.age = 22;
+
+console.log(jacky);
