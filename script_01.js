@@ -188,25 +188,97 @@
 //===============object 物件====================
 
 
+// var ken = {
+//     name: 'Ken',
+//     lastName: 'Cen',
+//     age:28,
+//     job: 'teacher'
+// }
+
+// //修改物件中資料的方式 -- 第一種
+// ken['name'] = 'Tom';
+// console.log(ken['name']);
+
+// //修改物件中資料的方式 -- 第二種
+// ken.name = 'Ken';
+// console.log(ken['name']);
+
+// var jacky = new Object();
+
+// jacky.name = 'jacky';
+// jacky.lastName = 'Cen';
+// jacky.age = 22;
+
+// console.log(jacky);
+
+
+//=============如何添加陣列和function到Object物件====================
+// var ken = {
+//     name: 'Ken',
+//     lastName: 'Cen',
+//     age:28,
+//     job: 'teacher',
+//     family: ['Ken', 'Tom', 'Kelly'],
+//     calculate: function yearOfBirth(myAge){
+//         return 2017 - myAge;
+//     }
+// }
+
+// console.log(ken.family[1]);
+// console.log(ken.calculate(10));
+
+// //下方這一段等同於Object 裡的calculate
+// var calculate = function yearOfBirth(myAge){
+//     return 2017 - myAge;
+// }
+
+
+//===================   This   =========================
+
+// var ken = {
+//     name: 'Ken',
+//     lastName: 'Cen',
+//     age:28,
+//     job: 'teacher',
+//     family: ['Ken', 'Tom', 'Kelly'],
+//     calculate: function yearOfBirth(){
+//         return 2017 - this.age;
+//     }
+// }
+
+// var yearOfBirth = ken.calculate();
+
+// ken.yearOfBirth = yearOfBirth;
+
+// console.log(ken);
+
+
 var ken = {
     name: 'Ken',
     lastName: 'Cen',
     age:28,
-    job: 'teacher'
+    job: 'teacher',
+    family: ['Ken', 'Tom', 'Kelly'],
+    calculate: function yearOfBirth(){
+        this.yearOfBirth = 2017 - this.age;
+    }
 }
 
-//修改物件中資料的方式 -- 第一種
-ken['name'] = 'Tom';
-console.log(ken['name']);
+ken.calculate();
+console.log(ken);
 
-//修改物件中資料的方式 -- 第二種
-ken.name = 'Ken';
-console.log(ken['name']);
 
-var jacky = new Object();
 
-jacky.name = 'jacky';
-jacky.lastName = 'Cen';
-jacky.age = 22;
+var tom = {
+    name: 'tomn',
+    lastName: 'Cen',
+    age:20,
+    job: 'teacher',
+    family: ['Ken', 'Tom', 'Kelly'],
+    calculate: function yearOfBirth(){
+        this.yearOfBirth = 2017 - this.age;
+    }
+}
 
-console.log(jacky);
+tom.calculate();
+console.log(tom);
