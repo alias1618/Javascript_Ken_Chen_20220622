@@ -253,32 +253,59 @@
 // console.log(ken);
 
 
-var ken = {
-    name: 'Ken',
-    lastName: 'Cen',
-    age:28,
-    job: 'teacher',
-    family: ['Ken', 'Tom', 'Kelly'],
-    calculate: function yearOfBirth(){
-        this.yearOfBirth = 2017 - this.age;
-    }
+// var ken = {
+//     name: 'Ken',
+//     lastName: 'Cen',
+//     age:28,
+//     job: 'teacher',
+//     family: ['Ken', 'Tom', 'Kelly'],
+//     calculate: function yearOfBirth(){
+//         this.yearOfBirth = 2017 - this.age;
+//     }
+// }
+
+// ken.calculate();
+// console.log(ken);
+
+
+
+// var tom = {
+//     name: 'tomn',
+//     lastName: 'Cen',
+//     age:20,
+//     job: 'teacher',
+//     family: ['Ken', 'Tom', 'Kelly'],
+//     calculate: function yearOfBirth(){
+//         this.yearOfBirth = 2017 - this.age;
+//     }
+// }
+
+// tom.calculate();
+// console.log(tom);
+
+
+//====================for 迴圈===============================
+
+// for (var i =1; i <= 5; i++) {
+
+//     console.log(i);
+// }
+
+
+// for (var i =1; i <= 5; i = i +2) {
+
+//     console.log(i);
+// }
+
+var names = ['Ken', 'John', 'Jacky', 'Tom'];
+
+// for (var i = 0; i <= names.length - 1; i++)
+// {
+//     console.log(names[i]);
+// }
+
+
+for (var i = names.length -1; i >= 0; i--)
+{
+    console.log(names[i]);
 }
-
-ken.calculate();
-console.log(ken);
-
-
-
-var tom = {
-    name: 'tomn',
-    lastName: 'Cen',
-    age:20,
-    job: 'teacher',
-    family: ['Ken', 'Tom', 'Kelly'],
-    calculate: function yearOfBirth(){
-        this.yearOfBirth = 2017 - this.age;
-    }
-}
-
-tom.calculate();
-console.log(tom);
