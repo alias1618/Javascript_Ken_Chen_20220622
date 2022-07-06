@@ -297,7 +297,7 @@
 //     console.log(i);
 // }
 
-var names = ['Ken', 'John', 'Jacky', 'Tom'];
+//var names = ['Ken', 'John', 'Jacky', 'Tom'];
 
 // for (var i = 0; i <= names.length - 1; i++)
 // {
@@ -305,7 +305,51 @@ var names = ['Ken', 'John', 'Jacky', 'Tom'];
 // }
 
 
-for (var i = names.length -1; i >= 0; i--)
-{
-    console.log(names[i]);
+// for (var i = names.length -1; i >= 0; i--)
+// {
+//     console.log(names[i]);
+// }
+
+//==================== while 迴圈 ==============================
+
+//1
+//2
+//3
+//4
+//5
+
+// var i =1;
+
+// while (i <= 5) {
+
+//     console.log(i);
+//     i++;
+// }
+
+// for (var i = 1; i <= 5; i++) {
+//     if (i ===3){
+//         break;
+//     }
+
+//     console.log(i);
+// }
+
+//顯示
+//1
+//2
+
+
+for (var i = 1; i <= 5; i++) {
+    if (i ===3){
+        continue;
+    }
+
+    console.log(i);
 }
+//顯示
+// 1
+// 2
+// 4
+// 5
+
+//------------------第一章結束
