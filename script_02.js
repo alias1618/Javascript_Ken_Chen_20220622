@@ -33,27 +33,27 @@ HeyKen
 HiKen
 */
 
-var names = "Ken";
+// var names = "Ken";
 
-function first() {
-    second();
-    var a = 'Hello';
-    console.log(a + names);
-}
+// function first() {
+//     second();
+//     var a = 'Hello';
+//     console.log(a + names);
+// }
 
-function second() {
-    third();
-    var b = 'Hey';
-    console.log(b + names);
-}
+// function second() {
+//     third();
+//     var b = 'Hey';
+//     console.log(b + names);
+// }
 
-function third() {
+// function third() {
 
-    var c = 'Hi';
-    console.log(c + names);
-}
+//     var c = 'Hi';
+//     console.log(c + names);
+// }
 
-first();
+// first();
 
 
 /*
@@ -128,3 +128,50 @@ HelloKen
 // }
 
 // this: {...}
+
+//=====================Hoisting===========================
+
+// sum(6, 4);
+
+// function sum(a,b) {
+    
+//     console.log(a + b);
+// }
+
+
+
+
+
+
+// var sumFunc = function sum(a,b) {
+    
+//     console.log(a + b);
+// }
+
+// sumFunc(6, 4);
+
+
+//console.log(age);
+
+//顯示undefined
+
+
+//var age = 28;
+
+//console.log(age);
+
+//顯示28
+
+
+//Global exection context
+// var age = 28;
+
+
+// function foo() {
+//     var age = 65;
+//     console.log(age);
+// }
+
+// foo();
+// console.log(age);
+
