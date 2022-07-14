@@ -175,3 +175,51 @@ HelloKen
 // foo();
 // console.log(age);
 
+//==================== Scope & SopeChain =====================================
+
+// Global scope [VOglobal]
+// var a = 'Hello';
+// first();
+
+// // first() scope [VO1] + [VOglobal]
+// function first() {
+
+//     var b = 'Hi';
+//     second();
+
+//     // scond() scope [VO2] + [VO1] + [VOglobal]
+//     function second() {
+
+//         var c = 'Hey';
+//         console.log(a + b + c);
+//     }
+
+// }
+
+
+
+// Global scope [VOglobal]
+var a = 'Hello';
+first();
+
+// first() scope [VO1] + [VOglobal]
+function first() {
+
+    var b = 'Hi';
+    second();
+
+    // scond() scope [VO2] + [VO1] + [VOglobal]
+    function second() {
+
+        var c = 'Hey';
+        third();
+    }
+
+}
+
+function third() {
+
+    var d = 'Ken';
+    console.log(a + b + c + d);
+    //console.log(a + d);
+}
