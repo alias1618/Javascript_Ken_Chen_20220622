@@ -198,28 +198,73 @@ HelloKen
 
 
 
-// Global scope [VOglobal]
-var a = 'Hello';
-first();
+// // Global scope [VOglobal]
+// var a = 'Hello';
+// first();
 
-// first() scope [VO1] + [VOglobal]
-function first() {
+// // first() scope [VO1] + [VOglobal]
+// function first() {
 
-    var b = 'Hi';
-    second();
+//     var b = 'Hi';
+//     second();
 
-    // scond() scope [VO2] + [VO1] + [VOglobal]
-    function second() {
+//     // scond() scope [VO2] + [VO1] + [VOglobal]
+//     function second() {
 
-        var c = 'Hey';
-        third();
+//         var c = 'Hey';
+//         third();
+//     }
+
+// }
+
+// function third() {
+
+//     var d = 'Ken';
+//     console.log(a + b + c + d);
+//     //console.log(a + d);
+// }
+
+
+//================= this variable ======================================
+
+
+//console.log(this);
+
+//顯示window
+
+
+//當我們使用function, 'this' 就會指向Global Object - 全局對象
+// function thisFunc() {
+//     console.log(this);
+// }
+
+// thisFunc();
+
+
+//當我們使用method的時候, 'this'就會指向當前的Object
+var ken = {
+    name: 'Ken',
+    age:28,
+    calculate: function yearOfBirth() {
+
+        console.log(this);
+        console.log(2017 - this.age);
+        
+        function innerFunction() {
+            
+            console.log(this);
+        }
+
+        innerFunction();
     }
-
 }
 
-function third() {
+ken.calculate();
 
-    var d = 'Ken';
-    console.log(a + b + c + d);
-    //console.log(a + d);
+var John = {
+    name: 'John',
+    age:39,
 }
+
+John.calculate = ken.calculate;
+John.calculate();
