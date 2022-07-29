@@ -28,3 +28,11 @@ document.querySelector('.dice').style = 'display: none';
 document.querySelector('.winner1').style = 'display: none';
 
 document.querySelector('.winner2').style = 'display: none';
+
+//Event監聽
+document.querySelector('.roll').addEventListener('click',function(){
+
+	console.log(dice);
+	
+});
+
