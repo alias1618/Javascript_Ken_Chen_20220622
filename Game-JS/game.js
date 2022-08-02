@@ -6,9 +6,9 @@
 
 //骰子的數字
 
-var dice = Math.floor(Math.random() * 6) + 1;
+//var dice = Math.floor(Math.random() * 6) + 1;
 
-console.log(dice);
+//console.log(dice);
 
 var currentPlayer = 1;
 
@@ -19,7 +19,7 @@ var currentPlayer = 1;
 
 //document.querySelector('#player' + currentPlayer + '-current-score').textContent = dice;
 
-document.querySelector('#player' + currentPlayer + '-current-score').innerHTML ='<h1>'+ dice +'<h1>';
+//document.querySelector('#player' + currentPlayer + '-current-score').innerHTML ='<h1>'+ dice +'<h1>';
 
 //隱藏骰子
 document.querySelector('.dice').style = 'display: none';
@@ -32,7 +32,11 @@ document.querySelector('.winner2').style = 'display: none';
 //Event監聽
 document.querySelector('.roll').addEventListener('click',function(){
 
+	var dice = Math.floor(Math.random() * 6) + 1;
 	console.log(dice);
+
+	document.querySelector('.dice').style = 'display: block';
+	document.querySelector('.dice').src = 'dice'+ dice +'.png';
 	
 });
 
