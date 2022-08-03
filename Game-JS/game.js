@@ -40,19 +40,26 @@ document.querySelector('.roll').addEventListener('click',function(){
 	document.querySelector('.dice').src = 'dice'+ dice +'.png';
 
 	if(currentPlayer === 1){
-
+		//顯示使用者1的分數
 		document.getElementById('player'+ currentPlayer +'-current-score').textContent = dice;
 
+		//總分
 		player1TotalScore += dice;
 		document.getElementById('player'+ currentPlayer +'-total-score').textContent = player1TotalScore;
+		//顯示目前使用者特效
+		document.querySelector('.panel-' + currentPlayer).classList.remove('active');
 		currentPlayer = 2;
-
+		document.querySelector('.panel-' + currentPlayer).classList.add('active');
 	}else{
+		//顯示使用者2的分數
 		document.getElementById('player'+ currentPlayer +'-current-score').textContent = dice;
 
 		player2TotalScore += dice;
 		document.getElementById('player'+ currentPlayer +'-total-score').textContent = player2TotalScore;
+		//顯示目前使用者特效
+		document.querySelector('.panel-' + currentPlayer).classList.remove('active');
 		currentPlayer = 1;
+		document.querySelector('.panel-' + currentPlayer).classList.add('active');
 	}
 	
 });
