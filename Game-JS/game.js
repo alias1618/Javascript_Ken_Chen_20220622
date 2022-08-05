@@ -13,6 +13,8 @@
 var currentPlayer = 1;
 var player1TotalScore = 0;
 var player2TotalScore = 0;
+
+var counter = 0;
 //DOM - Document Object Model
 
 //將隨機數字帶入score
@@ -62,5 +64,25 @@ document.querySelector('.roll').addEventListener('click',function(){
 		document.querySelector('.panel-' + currentPlayer).classList.add('active');
 	}
 	
+	counter += 1;
+
+	if (counter === 7){
+
+		if (player1TotalScore > player2TotalScore) {
+
+			document.querySelector('.winner1').style = 'display: block';
+			document.getElementById('player1-current-score').style = 'margin-top: 0px';
+
+		} else if (player1TotalScore < player2TotalScore) {
+
+			document.querySelector('.winner2').style = 'display: block';
+			document.getElementById('player2-current-score').style = 'margin-top: 0px';
+
+		} else {
+
+			document.querySelector('.roll').textContent = '平手';
+
+		}
+	}
 });
 
