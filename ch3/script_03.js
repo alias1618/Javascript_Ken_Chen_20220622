@@ -61,13 +61,16 @@ var Person = function(name, lastName, job) {
     this.name = name;
     this.lastName = lastName;
     this.job = job;
+    //this.location = 'HongKong';
 }
+Person.prototype.location = 'HongKong';
 
 var kelly = new function(name, lastName, job) {
 
     this.name = name;
     this.lastName = lastName;
     this.job = job;
+    
 }
 
 var kelly = new Person('Kelly', 'Chen', 'retired');
@@ -75,3 +78,7 @@ var tommy = new Person('Tommy', 'Huang', 'Teacher');
 
 console.log(kelly);
 console.log(tommy);
+
+
+console.log(kelly.location);
+console.log(tommy.location);
