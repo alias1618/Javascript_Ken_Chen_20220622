@@ -46,39 +46,68 @@
 
 //==========================inherit===================================
 
-var tom = {
+// var tom = {
 
-    name: 'Tom',
-    lastName: 'Li',
-    job: 'desinger',
+//     name: 'Tom',
+//     lastName: 'Li',
+//     job: 'desinger',
 
-}
+// }
 
 
 
-var Person = function(name, lastName, job) {
+// var Person = function(name, lastName, job) {
 
-    this.name = name;
-    this.lastName = lastName;
-    this.job = job;
-    //this.location = 'HongKong';
-}
-Person.prototype.location = 'HongKong';
+//     this.name = name;
+//     this.lastName = lastName;
+//     this.job = job;
+//     //this.location = 'HongKong';
+// }
+// Person.prototype.location = 'HongKong';
 
-var kelly = new function(name, lastName, job) {
+// var kelly = new function(name, lastName, job) {
 
-    this.name = name;
-    this.lastName = lastName;
-    this.job = job;
+//     this.name = name;
+//     this.lastName = lastName;
+//     this.job = job;
     
+// }
+
+// var kelly = new Person('Kelly', 'Chen', 'retired');
+// var tommy = new Person('Tommy', 'Huang', 'Teacher');
+
+// console.log(kelly);
+// console.log(tommy);
+
+
+// console.log(kelly.location);
+// console.log(tommy.location);
+
+
+//=====================  Object.create  ============================================
+
+
+var designer = {
+
+    product: 200,
+    usingTool: 'PhotoShop',
+
 }
 
-var kelly = new Person('Kelly', 'Chen', 'retired');
-var tommy = new Person('Tommy', 'Huang', 'Teacher');
+var tommy = Object.create(designer);
 
-console.log(kelly);
+tommy.name = 'Tommy';
+tommy.lastName ='Li';
+tommy.job = 'Desogner';
+
 console.log(tommy);
 
 
-console.log(kelly.location);
-console.log(tommy.location);
+var kelly = Object.create(designer, {
+
+    name: { value: 'kelly'},
+    yearOfBirth: {value: 1993},
+    job: {value: 'Designer'},
+})
+
+console.log(kelly);
