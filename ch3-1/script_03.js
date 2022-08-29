@@ -79,15 +79,89 @@
 
 // })();
 
-var a = 2;
+// var a = 2;
 
 
-//帶參數
-(function sayHello(name) {
+// //帶參數
+// (function sayHello(name) {
 
-    console.log('Hello, '+ name +'!');
+//     console.log('Hello, '+ name +'!');
 
-})('Tommy');
+// })('Tommy');
 
 
-console.log(name);
+// console.log(name);
+
+
+
+//=================================================================
+
+
+// var person = {
+
+//     firstName: 'Tommy',
+//     lastName: 'Li',
+//     fullName: function(job1, job2) {
+
+//         console.log(this.firstName + ' ' + this.lastName);
+//     }
+// }
+
+// person.fullName();
+
+
+// var ken = {
+//     firstName: 'Ken',
+//     lastName: 'Cen',
+// }
+
+// person.fullName.call(ken);
+
+
+
+// var person = {
+
+//     firstName: 'Tommy',
+//     lastName: 'Li',
+//     fullName: function(job1, job2) {
+
+//         console.log(this.firstName + ' ' + this.lastName + ' is a '+ job1 + ', and also is a ' + job2 +'.');
+//     }
+// }
+
+// //person.fullName();
+
+
+// var ken = {
+//     firstName: 'Ken',
+//     lastName: 'Cen',
+// }
+
+// //person.fullName.call(ken, 'teacher', 'designer');
+// person.fullName.bind(ken, 'designer')('teacher');
+
+
+
+//==================Global variable 全局變量 & Local variable 局部變量 ==========================
+
+//局部變量
+// function myFunction() {
+//     var a = 4;
+//     console.log(a * a);
+// }
+
+// myFunction();
+// //console.log(a);
+
+
+
+//全局變量
+var a = 5;
+
+function myFunction() {
+    var a = 6
+    console.log(a * a);
+}
+
+myFunction();
+console.log(a);
