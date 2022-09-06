@@ -159,9 +159,90 @@
 var a = 5;
 
 function myFunction() {
+    //局部變量
     var a = 6
     console.log(a * a);
 }
 
 myFunction();
 console.log(a);
+
+
+//-------------如何保護變量的值不被改變-------------------
+// var counter = 0;
+
+// function add() {
+
+//     counter += 1;
+// }
+
+// add();
+// add();
+// add();
+
+// console.log(counter);
+
+
+
+
+// function add() {
+//     var counter = 0;
+//     counter += 1;
+// }
+
+// add();
+// add();
+// add();
+
+// console.log(counter);
+//顯示錯誤 counter is not defined
+
+
+
+// function add() {
+//     var counter = 0;
+//     return counter += 1;
+// }
+
+// add();
+// add();
+// add();
+
+// console.log(add());
+//顯示 add() 為1
+
+
+// function add() {
+//     var counter = 0;
+
+//     function plus(){
+//         counter += 1;
+//     }
+//     plus();
+
+//     return counter;
+// }
+
+// add();
+// add();
+// add();
+
+// console.log(add());
+
+//顯示1
+
+
+var add = (function() {
+    var counter = 0;
+    return function() {
+        return counter += 1;
+    }
+})();
+
+add();
+add();
+
+console.log(add());
+
+
+//closure
