@@ -156,16 +156,16 @@
 
 
 //全局變量
-var a = 5;
+// var a = 5;
 
-function myFunction() {
-    //局部變量
-    var a = 6
-    console.log(a * a);
-}
+// function myFunction() {
+//     //局部變量
+//     var a = 6
+//     console.log(a * a);
+// }
 
-myFunction();
-console.log(a);
+// myFunction();
+// console.log(a);
 
 
 //-------------如何保護變量的值不被改變-------------------
@@ -232,17 +232,53 @@ console.log(a);
 //顯示1
 
 
-var add = (function() {
-    var counter = 0;
-    return function() {
-        return counter += 1;
-    }
-})();
+// var add = (function() {
+//     var counter = 0;
+//     return function() {
+//         return counter += 1;
+//     }
+// })();
 
-add();
-add();
+// add();
+// add();
 
-console.log(add());
+// console.log(add());
 
 
 //closure
+
+
+//--------------------------forEach和map方法-----------------------------
+
+// var array = [4, 9, 16, 25];
+
+// array.forEach(myFunction);
+
+// function myFunction(item, index){
+//     console.log('index[' + index + ']: ' + item);
+// }
+
+// var newArray = array.map(function(item){
+
+//     return item * 2; 
+// })
+
+// console.log(newArray);
+
+// console.log(array);
+
+
+
+//---------------------slice 和 indexOf-------------------------------
+
+
+var array = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+
+var newArray = array.slice(1,3);
+
+console.log(newArray);
+
+
+var index = array.indexOf('Lemon');
+
+console.log(index);
