@@ -29,14 +29,37 @@ var view = (function() {
 
 var controller = (function (m, v) {
 
-    var DOMstrings = view.getDOMstrings();
+    var setupEventListerner = function() {
+
+        var DOMstrings = view.getDOMstrings();
+    
+        document.querySelector(DOMstrings.btn).addEventListener('click', addItem);
+    
+        document.addEventListener('keypress', function(event){
+    
+            if(event.keycode === 13 || event.which ===13){
+                
+                addItem();
+            }
+        });
+    };
 
     var addItem = function() {
-
+    
         var input = view.getInfo();
         console.log(input);
     };
 
-    document.querySelector(DOMstrings.btn).addEventListener('click', addItem);
+    return {
+
+        init:function(){
+
+            console.log('APP started');
+            setupEventListerner();
+        }
+    }
     
 })(model, view);
+
+
+controller.init();
