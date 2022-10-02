@@ -3,6 +3,21 @@
 
 var model = (function(){
 
+    var item =function(id, name, value){
+        this.id = id;
+        this.name = name;
+        this.value = value;
+    };
+
+    // allItems = [];
+    // totals = 0;
+
+    var sata = {
+        allItems: [],
+        totals:0,
+        
+    }
+
 })();
 
 var view = (function() {
