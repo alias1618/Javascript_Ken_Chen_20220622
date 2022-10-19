@@ -12,10 +12,35 @@ var model = (function(){
     // allItems = [];
     // totals = 0;
 
-    var sata = {
+    var data = {
+
         allItems: [],
         totals:0,
         
+    }
+
+    return {
+
+        addItem: function(name, value){
+
+            var ID;
+
+            if(data.allItems.length > 0){
+
+                ID = data.allItems[data.allItems.length - 1].id + 1;
+            }else{
+                ID = 0;
+            }
+
+            var newItem = new item(ID, name, value);
+            data.allItems.push(newItem);
+
+            return newItem; 
+        },
+
+        test: function(){
+            console.log(data);
+        },
     }
 
 })();
@@ -26,14 +51,51 @@ var view = (function() {
         name: '.name',
         value: '.value',
         btn:'.bought_btn',
+        list: '.bought_list',
     }
 
     return {
         getInfo: function(){
             return{
                 name: document.querySelector(DOMstrings.name).value,
-                value: document.querySelector(DOMstrings.value).value,
+                value: parseFloat(document.querySelector(DOMstrings.value).value),
             };
+        },
+
+        addListItem: function(object){
+
+            var newHTML;
+
+            var element = DOMstrings.list;
+
+            var html = '<div class="item clearfix" id="%id%"><div class="item_name">%name%</div><div class="right clearfix"><div class="item_value">%value%</div><div class="delete"><button class="delete_btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+
+            newHTML = html.replace('%id%', object.id);
+            newHTML = newHTML.replace('%name%', object.name);
+            newHTML = newHTML.replace('%value%', object.value);
+
+            document.querySelector(element).insertAdjacentHTML('beforeend', newHTML);
+        },
+
+        clearInput: function() {
+
+            var inputs;
+
+            inputs = document.querySelectorAll(DOMstrings.name + ',' + DOMstrings.value);
+
+            var inputArray = Array.prototype.slice.call(inputs);
+
+            
+            //console.log(inputArray);
+
+            inputArray.forEach(function(currentVal) {
+
+                currentVal.value = '';  
+            });
+
+            inputArray[0].focus();
+
+            //inputs.slice();
         },
 
         getDOMstrings: function(){
@@ -42,7 +104,7 @@ var view = (function() {
     };
 })();
 
-var controller = (function (m, v) {
+var controller = (function(m, v) {
 
     var setupEventListerner = function() {
 
@@ -52,7 +114,7 @@ var controller = (function (m, v) {
     
         document.addEventListener('keypress', function(event){
     
-            if(event.keycode === 13 || event.which ===13){
+            if(event.keycode === 13 || event.which === 13){
                 
                 addItem();
             }
@@ -62,7 +124,18 @@ var controller = (function (m, v) {
     var addItem = function() {
     
         var input = view.getInfo();
-        console.log(input);
+        //console.log(input);
+
+        if(input.name != '' && !isNaN(input.value) && input.value > 0){
+
+            var newItem = model.addItem(input.name, input.value);
+
+            view.addListItem(newItem);
+    
+            view.clearInput();
+        }
+
+
     };
 
     return {
