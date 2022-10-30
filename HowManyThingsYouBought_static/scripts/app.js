@@ -19,6 +19,18 @@ var model = (function(){
         
     }
 
+    var calculateTotal = function() {
+
+        var sum = 0;
+        data.allItems.forEach(function(currentVal){
+
+            sum += currentVal.value;
+
+        });
+
+        data.totals = sum;
+    }
+
     return {
 
         addItem: function(name, value){
@@ -38,6 +50,14 @@ var model = (function(){
             return newItem; 
         },
 
+        calculateSum: function(){
+
+            calculateTotal();
+            return {
+                sum: data.totals,
+            }
+        },
+
         test: function(){
             console.log(data);
         },
@@ -52,6 +72,8 @@ var view = (function() {
         value: '.value',
         btn:'.bought_btn',
         list: '.bought_list',
+        sumLabel: '.total_value',
+        container: '.container',
     }
 
     return {
@@ -98,6 +120,11 @@ var view = (function() {
             //inputs.slice();
         },
 
+        displaySum: function(object){
+
+            document.querySelector(DOMstrings.sumLabel).textContent = object.sum + '元';
+        },
+
         getDOMstrings: function(){
             return DOMstrings;
         },
@@ -119,6 +146,22 @@ var controller = (function(m, v) {
                 addItem();
             }
         });
+
+        document.querySelector(DOMstrings.container).addEventListener('click', deleteItem);
+    };
+
+    var deleteItem = function(event){
+
+        var itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+        console.log(itemID);
+    };
+
+    var updateTotal = function() {
+
+        var sum = model.calculateSum();
+        //console.log(sum);
+        view.displaySum(sum);
     };
 
     var addItem = function() {
@@ -133,6 +176,8 @@ var controller = (function(m, v) {
             view.addListItem(newItem);
     
             view.clearInput();
+
+            updateTotal();
         }
 
 
@@ -143,6 +188,7 @@ var controller = (function(m, v) {
         init:function(){
 
             console.log('APP started');
+            view.displaySum({sum: 0,});
             setupEventListerner();
         }
     }
