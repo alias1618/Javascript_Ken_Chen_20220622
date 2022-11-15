@@ -50,6 +50,27 @@ var model = (function(){
             return newItem; 
         },
 
+        deleteItem: function(id){
+
+            var ids = data.allItems.map(function(currentVal){
+
+                return currentVal.id;
+            });
+
+            var index = ids.indexOf(parseInt(id, 10));
+
+            //console.log(index);
+
+            if(index >= 0){
+
+                data.allItems.splice(index, 1);
+
+            }
+            
+
+            //console.log(ids);
+        },
+
         calculateSum: function(){
 
             calculateTotal();
@@ -74,6 +95,15 @@ var view = (function() {
         list: '.bought_list',
         sumLabel: '.total_value',
         container: '.container',
+        month: '.month',
+    }
+
+    var formatting = function(number){
+
+        number = number.toFixed(2);
+        number = number.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+        return number;
     }
 
     return {
@@ -94,9 +124,16 @@ var view = (function() {
 
             newHTML = html.replace('%id%', object.id);
             newHTML = newHTML.replace('%name%', object.name);
-            newHTML = newHTML.replace('%value%', object.value);
+            newHTML = newHTML.replace('%value%', formatting(object.value)+ '元');
 
             document.querySelector(element).insertAdjacentHTML('beforeend', newHTML);
+        },
+
+        deleteItem: function (id) {
+          
+            var element = document.getElementById(id);
+
+            element.parentNode.removeChild(element);
         },
 
         clearInput: function() {
@@ -122,7 +159,17 @@ var view = (function() {
 
         displaySum: function(object){
 
-            document.querySelector(DOMstrings.sumLabel).textContent = object.sum + '元';
+            document.querySelector(DOMstrings.sumLabel).textContent = formatting(object.sum) + '元';
+        },
+
+        displayMonth: function(){
+
+            var now = new Date();
+
+            var year = now.getFullYear();
+            var month = now.getMonth();
+
+            document.querySelector(DOMstrings.month).textContent =year + '年' +  month + '月';
         },
 
         getDOMstrings: function(){
@@ -154,7 +201,13 @@ var controller = (function(m, v) {
 
         var itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 
-        console.log(itemID);
+        //console.log(itemID);
+
+        model.deleteItem(itemID);
+
+        view.deleteItem(itemID);
+
+        updateTotal();
     };
 
     var updateTotal = function() {
@@ -188,6 +241,7 @@ var controller = (function(m, v) {
         init:function(){
 
             console.log('APP started');
+            view.displayMonth();
             view.displaySum({sum: 0,});
             setupEventListerner();
         }
