@@ -53,6 +53,27 @@
 
       key.classList.add('playing');
     }
+
+    var keys = document.querySelectorAll('.key');
+
+    // var keyArray = Array.prototype.slice.call(keys);
+    // //console.log(keyArray);
+
+    // keyArray.forEach(function(currentVal, index, array){
+
+    //   currentVal.addEventListener('transitionend', removeTransition);
+    // });
+
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+    function removeTransition(event){
+      //console.log(event);
+      if(event.propertyName === 'transform'){
+        //console.log(this);
+
+        this.classList.remove('playing');
+      }
+    }
   }
 </script>
 
